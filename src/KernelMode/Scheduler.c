@@ -7,7 +7,7 @@ static UINTN TaskCount = 0;
 
 BOOLEAN SchedulerInit(void) {
     TaskCount = 0;
-    LogInfo(L"[Scheduler] Iniciado correctamente\n");
+    LogInfo(L"started correctly\n");
     return TRUE;
 }
 
