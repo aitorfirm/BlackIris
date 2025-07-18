@@ -1,0 +1,10 @@
+#ifndef SYRIAL_BOOTKIT_DEFS_H
+#define SYRIAL_BOOTKIT_DEFS_H
+
+#define KERNEL_PAYLOAD_ADDRESS 0x400000  // 4MB físico
+
+extern EFI_BOOT_SERVICES* gBS;
+extern EFI_SYSTEM_TABLE* gST;
+extern EFI_RUNTIME_SERVICES* gRT;
+
+#endif
