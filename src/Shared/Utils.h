@@ -1,0 +1,19 @@
+#ifndef SYRIAL_SHARED_UTILS_H
+#define SYRIAL_SHARED_UTILS_H
+
+#include <Uefi.h>
+
+UINTN StrLen(CONST CHAR16* Str);
+INTN StrCmp(CONST CHAR16* Str1, CONST CHAR16* Str2);
+INTN StrnCmp(CONST CHAR16* Str1, CONST CHAR16* Str2, UINTN Count);
+VOID StrCpy(CHAR16* Dest, CONST CHAR16* Src);
+
+VOID StallMs(UINT64 Ms);
+UINT64 GetCurrentTimeMs(VOID);
+
+VOID MemCopy(VOID* Dest, CONST VOID* Src, UINTN Size);
+VOID MemZero(VOID* Ptr, UINTN Size);
+
+VOID HexDump(VOID* Ptr, UINTN Size);
+
+#endif 
