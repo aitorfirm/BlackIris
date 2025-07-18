@@ -30,8 +30,10 @@ Syrial & BlackIris is a **modular rootkit for UEFI-based systems**, structured i
 ## Architecture
 
 src/
+```bash
 ├── Bootkit/ ← EFI entry point, memory patching, DXE hook, interrupt hijacking
 ├── Bot/ ← Keylogger, command control, remote ops
 ├── Encryptor/ ← AES/XOR crypto, filesystem encryption, keygen
 ├── Shared/ ← Logging, memory utils, EFI wrappers, syscall bridge
 └── Syrial.inf ← UEFI build descriptor for EDK2
+```
