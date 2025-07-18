@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <b>Syrial</b> is a full-scale, modular UEFI rootkit with physical memory mapping, runtime persistence, remote command control, file encryption, and a keyserver backend. It executes below the OS using real UEFI Runtime Services and survives Secure Boot bypass.
+  <b>BlackIris</b> is a full-scale, modular UEFI rootkit with physical memory mapping, runtime persistence, remote command control, file encryption, and a keyserver backend. It executes below the OS using real UEFI Runtime Services and survives Secure Boot bypass.
 </p>
 
 ---
